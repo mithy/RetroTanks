@@ -16,3 +16,9 @@ Player 2:
 - movement Arrow Keys
 - fire RETURN
 ```
+
+### Game Rules
+
+- Each tank can fire only one bullet. Until the bullet is gone, the tanks cannot fire another time.
+- Each tank can only move in 4 directions UP, DOWN, LEFT, RIGHT.
+- Each tank has one life. One shot, one kill.
