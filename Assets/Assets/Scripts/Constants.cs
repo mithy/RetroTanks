@@ -24,4 +24,9 @@
     public const string MainMenuScene = "main_menu_scene";
 
     public const string HiddenText = "Hidden";
+
+    public const int BulletMinX = 0;
+    public const int BulletMinY = 0;
+    public const int BulletMaxX = 5;
+    public const int BulletMaxY = 3;
 }
