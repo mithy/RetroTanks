@@ -1,8 +1,9 @@
-# TankGame
-A simple tank game made in Unity 2017.2.0f3
+# RetroTanks
+A retro tank game created with Unity.
 
 ### Installing / Binaries
 
+The game can be opened / built with Unity3D game engine.
 This game is exported as HTML5 and can be found at this [link](https://mithy.github.io/tank_game/).
 
 ### Controls
