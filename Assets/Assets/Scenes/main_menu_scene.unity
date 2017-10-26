@@ -1227,6 +1227,7 @@ GameObject:
   - component: {fileID: 1033189247}
   - component: {fileID: 1033189246}
   - component: {fileID: 1033189250}
+  - component: {fileID: 1033189251}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1298,8 +1299,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1033189245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 512, y: 384, z: 0}
-  m_LocalScale: {x: 1.28, y: 1.28, z: 1.28}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
   m_Children:
   - {fileID: 563232742}
   - {fileID: 1174787387}
@@ -1326,6 +1327,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _quitButton: {fileID: 1361291256}
   _modifiersWindow: {fileID: 136142990}
+--- !u!114 &1033189251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1033189245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1024, y: 768}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0.5
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &1079849342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,15 +1446,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1174787386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -231.54999, z: 0}
+  m_LocalPosition: {x: -2.5299988, y: -216.555, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1033189249}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -231.55}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -2.53, y: 8.445}
   m_SizeDelta: {x: 640, y: 16.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1174787388
@@ -1467,7 +1489,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Adrian popovici 2017
+  m_Text: DVE 2017
 --- !u!222 &1174787389
 CanvasRenderer:
   m_ObjectHideFlags: 0
