@@ -35,9 +35,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4128780253235500}
-  - component: {fileID: 114835325585826418}
-  - component: {fileID: 114712255126389302}
-  - component: {fileID: 114743069313864756}
   - component: {fileID: 61277229807401128}
   - component: {fileID: 50698786110661988}
   m_Layer: 8
@@ -117,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1258417808979904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: -10, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4386701151972256}
@@ -255,42 +252,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114712255126389302
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1258417808979904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28d0c6c7d00718644bea6efd437ae82e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114743069313864756
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1258417808979904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0db81d39aad386f45b64d55af8497c56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114835325585826418
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1258417808979904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99a6842f8d2d7f4f995ee554462ef95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Anim1: {fileID: 21300000, guid: 8e69b754465802147ac460544f0f1e1a, type: 3}
-  _Anim2: {fileID: 21300000, guid: 4c1cfe33642065c489d78fe3f751e081, type: 3}
-  _team: 0
 --- !u!212 &212174578061139548
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -325,15 +286,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e213b4e5a7ed7fa429d37ca308c1e28c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!212 &212395145357568062
 SpriteRenderer:
