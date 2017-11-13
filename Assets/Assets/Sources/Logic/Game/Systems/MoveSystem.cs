@@ -18,7 +18,10 @@ public class MoveSystem : IExecuteSystem {
 			var move = entity.move;
 			var pos = entity.position;
 
-			entity.ReplacePosition(pos.x + (velocity.x * move.speed * Time.deltaTime), pos.y + (velocity.y * move.speed * Time.deltaTime));
+			Vector2 currentVelocity = new Vector2(velocity.x * move.speed * Time.deltaTime, 
+				velocity.y * move.speed * Time.deltaTime);
+
+			entity.ReplaceMove(move.speed, currentVelocity);
 		}
 	}
 

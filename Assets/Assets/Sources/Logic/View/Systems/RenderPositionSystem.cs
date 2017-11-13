@@ -8,17 +8,18 @@ public sealed class RenderPositionSystem : ReactiveSystem<GameEntity> {
 	}
 
 	protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) {
-		return context.CreateCollector(GameMatcher.AllOf(GameMatcher.Position, GameMatcher.View));
+		return context.CreateCollector(GameMatcher.AllOf(GameMatcher.Position, GameMatcher.View, GameMatcher.Move));
 	}
 
 	protected override bool Filter(GameEntity entity) {
-		return entity.hasView && entity.hasPosition;
+		return entity.hasView && entity.hasPosition && entity.hasMove;
 	}
 
 	protected override void Execute(List<GameEntity> entities) {
 		foreach (var e in entities) {
 			var pos = e.position;
-			e.view.value.transform.position = new Vector2(pos.x, pos.y);
+
+			e.view.value.transform.Translate(e.move.currentVelocity);
 		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using UnityEngine;
 
 public sealed class InitPlayerSystem : IInitializeSystem {
 
@@ -11,8 +12,8 @@ public sealed class InitPlayerSystem : IInitializeSystem {
 	public void Initialize() {
 		var entity = _context.CreateEntity();
 		entity.AddAsset(AssetsEnum.Tank);
-		entity.AddPosition(0, 0);
-		entity.AddMove(0.5f);
+		entity.AddPosition(1, 1);
+		entity.AddMove(0.5f, Vector2.zero);
 		entity.isPlayerInput = true;
 	}
 }
