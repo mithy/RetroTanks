@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4128780253235500}
   - component: {fileID: 61277229807401128}
   - component: {fileID: 50698786110661988}
+  - component: {fileID: 114478358663923088}
   m_Layer: 8
   m_Name: Tank
   m_TagString: Untagged
@@ -114,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1258417808979904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.6724564, y: 1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4386701151972256}
@@ -252,6 +253,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114478358663923088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1258417808979904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e0d481d1edc7b43b0d4dc81c8c241c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationNode: {fileID: 4386701151972256}
+  _bulletFire: {fileID: 4857443816525188}
+  _explosionNode: {fileID: 1954396038539438}
 --- !u!212 &212174578061139548
 SpriteRenderer:
   m_ObjectHideFlags: 1

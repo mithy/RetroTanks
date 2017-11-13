@@ -10,8 +10,9 @@ public sealed class InitPlayerSystem : IInitializeSystem {
 
 	public void Initialize() {
 		var entity = _context.CreateEntity();
-		entity.AddAsset("Tank");
+		entity.AddAsset(AssetsEnum.Tank);
 		entity.AddPosition(0, 0);
 		entity.AddMove(0.5f);
+		entity.isPlayerInput = true;
 	}
 }

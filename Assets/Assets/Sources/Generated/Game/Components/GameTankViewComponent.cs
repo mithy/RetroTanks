@@ -8,25 +8,27 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public AssetComponent asset { get { return (AssetComponent)GetComponent(GameComponentsLookup.Asset); } }
-    public bool hasAsset { get { return HasComponent(GameComponentsLookup.Asset); } }
+    public TankViewComponent tankView { get { return (TankViewComponent)GetComponent(GameComponentsLookup.TankView); } }
+    public bool hasTankView { get { return HasComponent(GameComponentsLookup.TankView); } }
 
-    public void AddAsset(AssetsEnum newValue) {
-        var index = GameComponentsLookup.Asset;
-        var component = CreateComponent<AssetComponent>(index);
+    public void AddTankView(TankView newValue, DirectionsEnum newCurrentDirection) {
+        var index = GameComponentsLookup.TankView;
+        var component = CreateComponent<TankViewComponent>(index);
         component.value = newValue;
+        component.currentDirection = newCurrentDirection;
         AddComponent(index, component);
     }
 
-    public void ReplaceAsset(AssetsEnum newValue) {
-        var index = GameComponentsLookup.Asset;
-        var component = CreateComponent<AssetComponent>(index);
+    public void ReplaceTankView(TankView newValue, DirectionsEnum newCurrentDirection) {
+        var index = GameComponentsLookup.TankView;
+        var component = CreateComponent<TankViewComponent>(index);
         component.value = newValue;
+        component.currentDirection = newCurrentDirection;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveAsset() {
-        RemoveComponent(GameComponentsLookup.Asset);
+    public void RemoveTankView() {
+        RemoveComponent(GameComponentsLookup.TankView);
     }
 }
 
@@ -40,17 +42,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherAsset;
+    static Entitas.IMatcher<GameEntity> _matcherTankView;
 
-    public static Entitas.IMatcher<GameEntity> Asset {
+    public static Entitas.IMatcher<GameEntity> TankView {
         get {
-            if (_matcherAsset == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Asset);
+            if (_matcherTankView == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.TankView);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherAsset = matcher;
+                _matcherTankView = matcher;
             }
 
-            return _matcherAsset;
+            return _matcherTankView;
         }
     }
 }

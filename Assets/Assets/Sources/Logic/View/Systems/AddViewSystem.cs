@@ -21,11 +21,18 @@ public sealed class AddViewSystem : ReactiveSystem<GameEntity> {
 
 	protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
 		foreach (var entity in entities) {
-			GameObject gameObject = GameObject.Instantiate(_contexts.game.globals.value.TankPrefab);
+			AssetsEnum selectedAsset = entity.asset.value;
+			GameObject gameObject = GameObject.Instantiate(_contexts.game.globals.value.GetPrefab(selectedAsset));
 
 			if (gameObject != null) {
 				gameObject.transform.parent = _viewContainer;
 				entity.AddView(gameObject);
+
+				switch (selectedAsset) {
+					case AssetsEnum.Tank:
+						entity.AddTankView(gameObject.GetComponent<TankView>(), DirectionsEnum.None);
+						break;
+				}
 			}
 		}
 	}
