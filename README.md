@@ -1,25 +1,8 @@
 # RetroTanks (work in progress)
-A retro tank game created with Unity.
+A simple tank game created with Unity 2017.
+It is a study of ECS (Entity Component System) architecture.
 
-### Installing / Binaries
+### Frameworks / libs used
+- Entitas https://github.com/sschmid/Entitas-CSharp
 
-The game can be opened / built with Unity3D game engine.
-This game is exported as HTML5 and can be found at this [link](https://mithy.github.io/tank_game/).
 
-### Controls
-
-```
-Player 1:
-- movement WSAD
-- fire SPACE
-
-Player 2:
-- movement Arrow Keys
-- fire RETURN
-```
-
-### Game Rules
-
-- Each tank can fire only one bullet. Until the bullet is gone, the tanks cannot fire another time.
-- Each tank can only move in 4 directions UP, DOWN, LEFT, RIGHT.
-- Each tank has one life. One shot, one kill.
