@@ -8,19 +8,27 @@
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    static readonly FireInputComponent fireInputComponent = new FireInputComponent();
+    public FireInputComponent fireInput { get { return (FireInputComponent)GetComponent(InputComponentsLookup.FireInput); } }
+    public bool hasFireInput { get { return HasComponent(InputComponentsLookup.FireInput); } }
 
-    public bool isFireInput {
-        get { return HasComponent(InputComponentsLookup.FireInput); }
-        set {
-            if (value != isFireInput) {
-                if (value) {
-                    AddComponent(InputComponentsLookup.FireInput, fireInputComponent);
-                } else {
-                    RemoveComponent(InputComponentsLookup.FireInput);
-                }
-            }
-        }
+    public void AddFireInput(UnityEngine.Vector2 newPosition, DirectionsEnum newDirection) {
+        var index = InputComponentsLookup.FireInput;
+        var component = CreateComponent<FireInputComponent>(index);
+        component.position = newPosition;
+        component.direction = newDirection;
+        AddComponent(index, component);
+    }
+
+    public void ReplaceFireInput(UnityEngine.Vector2 newPosition, DirectionsEnum newDirection) {
+        var index = InputComponentsLookup.FireInput;
+        var component = CreateComponent<FireInputComponent>(index);
+        component.position = newPosition;
+        component.direction = newDirection;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveFireInput() {
+        RemoveComponent(InputComponentsLookup.FireInput);
     }
 }
 

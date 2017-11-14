@@ -1,17 +1,21 @@
 ﻿using Entitas;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InputSystem : IExecuteSystem, ICleanupSystem {
 
-	private readonly InputContext _context;
+	private readonly GameContext _gameContext;
+	private readonly InputContext _inputContext;
+
 	private readonly IGroup<GameEntity> _affectedEntities;
 	private readonly IGroup<InputEntity> _fireInputs;
 
 	public InputSystem(Contexts contexts) {
-		_context = contexts.input;
+		_gameContext = contexts.game;
+		_inputContext = contexts.input;
 
-		_affectedEntities = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.PlayerInput, GameMatcher.TankView));
-		_fireInputs = _context.GetGroup(InputMatcher.FireInput);
+		_affectedEntities = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.PlayerInput, GameMatcher.Move));
+		_fireInputs = _inputContext.GetGroup(InputMatcher.FireInput);
 	}
 
 	public void Execute() {
@@ -45,14 +49,29 @@ public class InputSystem : IExecuteSystem, ICleanupSystem {
 		}
 
 		foreach (var entity in _affectedEntities) {
-			entity.ReplaceTankView(entity.tankView.value, currentDirection);
+			var move = entity.move;
+			entity.ReplaceMove(move.speed, currentDirection, move.currentVelocity);
 		}
 	}
 
 	private void ProcessFireInput() {
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			InputEntity entity = _context.CreateEntity();
-			entity.isFireInput = true;
+			string playerUUID = _gameContext.globals.value.PlayerUUID;
+				
+			HashSet<GameEntity> entities = _gameContext.GetEntitiesWithIndexedEntity(playerUUID);
+			GameEntity playerEntity = null;
+
+			foreach (var e in entities) {
+				playerEntity = e;
+			}
+
+			if (playerEntity != null) {
+				InputEntity entity = _inputContext.CreateEntity();
+
+				entity.AddFireInput(
+					playerEntity.tankView.value.GetTurretPosition(),
+					playerEntity.move.direction);
+			}
 		}
 	}
 }

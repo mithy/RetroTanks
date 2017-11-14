@@ -3,7 +3,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-	public Globals globals;
+	[SerializeField]
+	private Globals globals;
+
+	[SerializeField]
+	private ProjectilePool projectilePool;
 
     private Systems _systems;
 	private Contexts _contexts;
@@ -13,6 +17,7 @@ public class GameController : MonoBehaviour {
 
 		_contexts = Contexts.sharedInstance;
 		_contexts.game.SetGlobals(globals);
+		_contexts.game.SetProjectilePool(projectilePool);
 
 		_systems = CreateSystems(_contexts);
         _systems.Initialize();

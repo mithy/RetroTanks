@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Name: _Globals
   m_EditorClassIdentifier: 
   TankPrefab: {fileID: 1258417808979904, guid: 889c7da5c9bc758449dc127424a2f580, type: 2}
+  ProjectilePrefab: {fileID: 1953496476817042, guid: 76c42f5831412f241a381067f635ff47,
+    type: 2}

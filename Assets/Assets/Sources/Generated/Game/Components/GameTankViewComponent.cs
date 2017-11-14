@@ -11,19 +11,17 @@ public partial class GameEntity {
     public TankViewComponent tankView { get { return (TankViewComponent)GetComponent(GameComponentsLookup.TankView); } }
     public bool hasTankView { get { return HasComponent(GameComponentsLookup.TankView); } }
 
-    public void AddTankView(TankView newValue, DirectionsEnum newCurrentDirection) {
+    public void AddTankView(TankView newValue) {
         var index = GameComponentsLookup.TankView;
         var component = CreateComponent<TankViewComponent>(index);
         component.value = newValue;
-        component.currentDirection = newCurrentDirection;
         AddComponent(index, component);
     }
 
-    public void ReplaceTankView(TankView newValue, DirectionsEnum newCurrentDirection) {
+    public void ReplaceTankView(TankView newValue) {
         var index = GameComponentsLookup.TankView;
         var component = CreateComponent<TankViewComponent>(index);
         component.value = newValue;
-        component.currentDirection = newCurrentDirection;
         ReplaceComponent(index, component);
     }
 

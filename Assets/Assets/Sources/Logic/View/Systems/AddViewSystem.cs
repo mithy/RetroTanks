@@ -1,10 +1,12 @@
-﻿using Entitas;
+﻿using System;
+using Entitas;
 using UnityEngine;
-using System;
 
 public sealed class AddViewSystem : ReactiveSystem<GameEntity> {
 
-	private readonly Transform _viewContainer = new GameObject("Views").transform;
+	private const string VIEWS_CONTAINER = "Views";
+
+	private readonly Transform _viewContainer = new GameObject(VIEWS_CONTAINER).transform;
 	private Contexts _contexts;
 
 	public AddViewSystem(Contexts contexts) : base(contexts.game) {
@@ -22,7 +24,7 @@ public sealed class AddViewSystem : ReactiveSystem<GameEntity> {
 	protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
 		foreach (var entity in entities) {
 			AssetsEnum selectedAsset = entity.asset.value;
-			GameObject gameObject = GameObject.Instantiate(_contexts.game.globals.value.GetPrefab(selectedAsset));
+			GameObject gameObject = GetGameObject(selectedAsset);
 
 			if (gameObject != null) {
 				gameObject.transform.parent = _viewContainer;
@@ -30,11 +32,23 @@ public sealed class AddViewSystem : ReactiveSystem<GameEntity> {
 
 				switch (selectedAsset) {
 					case AssetsEnum.Tank:
-						entity.AddTankView(gameObject.GetComponent<TankView>(), DirectionsEnum.None);
+						entity.AddTankView(gameObject.GetComponent<TankView>());
 						break;
 				}
 			}
 		}
+	}
+
+	private GameObject GetGameObject(AssetsEnum selectedAsset) {
+		switch (selectedAsset) {
+			case AssetsEnum.Tank:
+				return GameObject.Instantiate(_contexts.game.globals.value.GetPrefab(selectedAsset));
+
+			case AssetsEnum.Projectile:
+				return _contexts.game.projectilePool.value.GetProjectile();
+		}
+
+		return null;
 	}
 
 }
