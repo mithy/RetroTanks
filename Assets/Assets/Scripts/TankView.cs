@@ -15,15 +15,24 @@ public class TankView : MonoBehaviour {
 	[SerializeField]
 	private GameObject _explosionNode;
 
+	private DirectionsEnum _currentFacingDirection = DirectionsEnum.Left;
+	public DirectionsEnum CurrentFacingDirection {
+		get {
+			return _currentFacingDirection;
+		}
+	}
+
+	public Vector3 TurretPosition {
+		get {
+			return _bulletFire.position;
+		}
+	}
+
 	private Animator _animator;
 
 	private void Awake() {
 		_animator = _rotationNode.GetComponent<Animator>();
 		_explosionNode.SetActive(false);
-	}
-
-	public Vector2 GetTurretPosition() {
-		return _bulletFire.position;
 	}
 
 	public void Rotate(DirectionsEnum direction) {
@@ -43,6 +52,10 @@ public class TankView : MonoBehaviour {
 			case DirectionsEnum.Right:
 				_rotationNode.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
 				break;
+		}
+
+		if (direction != DirectionsEnum.None) {
+			_currentFacingDirection = direction;
 		}
 	}
 

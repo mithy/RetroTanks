@@ -9,19 +9,20 @@ public class RenderTankSystem : ReactiveSystem<GameEntity> {
 	}
 
 	protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) {
-		return context.CreateCollector(GameMatcher.TankView);
+		return context.CreateCollector(GameMatcher.AllOf(GameMatcher.Move, GameMatcher.TankView));
 	}
 
 	protected override bool Filter(GameEntity entity) {
-		return entity.hasTankView;
+		return entity.hasMove && entity.hasTankView;
 	}
 
 	protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
 		foreach (var entity in entities) {
 			var tankView = entity.tankView;
+			var move = entity.move;
 
-			tankView.value.Rotate(tankView.currentDirection);
-			tankView.value.ToggleAnimation(tankView.currentDirection != DirectionsEnum.None);
+			tankView.value.Rotate(move.direction);
+			tankView.value.ToggleAnimation(move.direction != DirectionsEnum.None);
 		}
 	}
 }

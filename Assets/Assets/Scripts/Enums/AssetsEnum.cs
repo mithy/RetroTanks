@@ -1,3 +1,4 @@
 ﻿public enum AssetsEnum {
-	Tank
+	Tank,
+	Projectile
 }

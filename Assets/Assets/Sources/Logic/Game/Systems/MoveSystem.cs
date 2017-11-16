@@ -8,20 +8,19 @@ public class MoveSystem : IExecuteSystem {
 
 	public MoveSystem(Contexts contexts) {
 		_contexts = contexts;
-		_group = contexts.game.GetGroup(Matcher<GameEntity>.AllOf(GameMatcher.Move, GameMatcher.Position, GameMatcher.TankView));
+		_group = contexts.game.GetGroup(Matcher<GameEntity>.AllOf(GameMatcher.Move, GameMatcher.Position));
 	}
 
 	public void Execute() {
 		foreach (var entity in _group.GetEntities()) {
-			Vector2Int velocity = ProcessDirection(entity.tankView.currentDirection);
+			float speed = entity.move.speed;
+			DirectionsEnum direction = entity.move.direction;
+			Vector2Int velocity = ProcessDirection(direction);
 
-			var move = entity.move;
-			var pos = entity.position;
+			Vector2 currentVelocity = new Vector2(velocity.x * speed * Time.deltaTime, 
+				velocity.y * speed * Time.deltaTime);
 
-			Vector2 currentVelocity = new Vector2(velocity.x * move.speed * Time.deltaTime, 
-				velocity.y * move.speed * Time.deltaTime);
-
-			entity.ReplaceMove(move.speed, currentVelocity);
+			entity.ReplaceMove(speed, direction, currentVelocity);
 		}
 	}
 
