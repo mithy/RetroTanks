@@ -18,6 +18,7 @@ public sealed class InitPlayerSystem : IInitializeSystem {
 		entity.AddAsset(AssetsEnum.Tank);
 		entity.AddPosition(1, 1);
 		entity.AddMove(0.5f, DirectionsEnum.None, Vector2.zero);
+		entity.AddHealth(100);
 		entity.isPlayerInput = true;
 
 		_context.globals.value.PlayerUUID = uuid;

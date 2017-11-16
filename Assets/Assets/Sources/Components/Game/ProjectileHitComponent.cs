@@ -2,5 +2,5 @@
 
 [Game]
 public class ProjectileHitComponent : IComponent {
-	public bool wasHit;
+	public GameEntity objectHit;
 }

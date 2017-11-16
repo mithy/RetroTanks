@@ -11,17 +11,17 @@ public partial class GameEntity {
     public ProjectileHitComponent projectileHit { get { return (ProjectileHitComponent)GetComponent(GameComponentsLookup.ProjectileHit); } }
     public bool hasProjectileHit { get { return HasComponent(GameComponentsLookup.ProjectileHit); } }
 
-    public void AddProjectileHit(bool newWasHit) {
+    public void AddProjectileHit(GameEntity newObjectHit) {
         var index = GameComponentsLookup.ProjectileHit;
         var component = CreateComponent<ProjectileHitComponent>(index);
-        component.wasHit = newWasHit;
+        component.objectHit = newObjectHit;
         AddComponent(index, component);
     }
 
-    public void ReplaceProjectileHit(bool newWasHit) {
+    public void ReplaceProjectileHit(GameEntity newObjectHit) {
         var index = GameComponentsLookup.ProjectileHit;
         var component = CreateComponent<ProjectileHitComponent>(index);
-        component.wasHit = newWasHit;
+        component.objectHit = newObjectHit;
         ReplaceComponent(index, component);
     }
 

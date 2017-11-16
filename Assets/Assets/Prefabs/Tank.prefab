@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 61277229807401128}
   - component: {fileID: 50698786110661988}
   - component: {fileID: 114478358663923088}
+  - component: {fileID: 114987098572240850}
   m_Layer: 8
   m_Name: Tank
   m_TagString: Untagged
@@ -267,6 +268,17 @@ MonoBehaviour:
   _rotationNode: {fileID: 4386701151972256}
   _bulletFire: {fileID: 4857443816525188}
   _explosionNode: {fileID: 1954396038539438}
+--- !u!114 &114987098572240850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1258417808979904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ec254c965a88a4c8732692288a951d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212174578061139548
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public sealed class ProcessProjectileHitSystem : ReactiveSystem<GameEntity>, ICleanupSystem {
 
+	private const int PROJECTILE_DAMAGE = 25;
+
 	private readonly IGroup<GameEntity> _collidedProjectiles;
 
 	public ProcessProjectileHitSystem(Contexts contexts) : base(contexts.game) {
@@ -21,6 +23,9 @@ public sealed class ProcessProjectileHitSystem : ReactiveSystem<GameEntity>, ICl
 		foreach (var entity in entities) {
 			EntityLink entityLink = entity.view.value.GetComponent<EntityLink>();
 			entityLink?.Unlink();
+
+			GameEntity objectHit = entity.projectileHit.objectHit;
+			objectHit?.ReplaceHealth(objectHit.health.value - PROJECTILE_DAMAGE);
 
 			entity.view.value.SetActive(false);
 		}
