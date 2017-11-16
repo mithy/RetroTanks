@@ -15,6 +15,9 @@ public class TankView : MonoBehaviour {
 	[SerializeField]
 	private GameObject _explosionNode;
 
+	[SerializeField]
+	private List<SpriteRenderer> _animationFrames;
+
 	private DirectionsEnum _currentFacingDirection = DirectionsEnum.Left;
 	public DirectionsEnum CurrentFacingDirection {
 		get {
@@ -66,5 +69,11 @@ public class TankView : MonoBehaviour {
 	public void ToggleExplosion(bool shouldExplore) {
 		_explosionNode.SetActive(shouldExplore);
 		_rotationNode.gameObject.SetActive(!shouldExplore);
+	}
+
+	public void SetColor(Color color) {
+		foreach (SpriteRenderer sprite in _animationFrames) {
+			sprite.color = color;
+		}
 	}
 }

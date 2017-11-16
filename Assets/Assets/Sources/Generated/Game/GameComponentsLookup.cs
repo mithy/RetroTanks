@@ -9,21 +9,23 @@
 public static class GameComponentsLookup {
 
     public const int Asset = 0;
-    public const int Globals = 1;
-    public const int Health = 2;
-    public const int IndexedEntity = 3;
-    public const int Move = 4;
-    public const int PlayerInput = 5;
-    public const int Position = 6;
-    public const int ProjectileHit = 7;
-    public const int ProjectilePool = 8;
-    public const int TankView = 9;
-    public const int View = 10;
+    public const int Enemy = 1;
+    public const int Globals = 2;
+    public const int Health = 3;
+    public const int IndexedEntity = 4;
+    public const int Move = 5;
+    public const int PlayerInput = 6;
+    public const int Position = 7;
+    public const int ProjectileHit = 8;
+    public const int ProjectilePool = 9;
+    public const int TankView = 10;
+    public const int View = 11;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "Asset",
+        "Enemy",
         "Globals",
         "Health",
         "IndexedEntity",
@@ -38,6 +40,7 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(AssetComponent),
+        typeof(EnemyComponent),
         typeof(GlobalsComponent),
         typeof(HealthComponent),
         typeof(IndexedEntityComponent),

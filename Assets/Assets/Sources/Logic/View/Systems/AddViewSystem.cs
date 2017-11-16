@@ -61,6 +61,11 @@ public sealed class AddViewSystem : ReactiveSystem<GameEntity> {
 		switch (selectedAsset) {
 			case AssetsEnum.Tank:
 				entity.AddTankView(gameObject.GetComponent<TankView>());
+
+				if (entity.isEnemy) {
+					entity.tankView.value.SetColor(Color.red);
+				}
+
 				break;
 		}
 	}

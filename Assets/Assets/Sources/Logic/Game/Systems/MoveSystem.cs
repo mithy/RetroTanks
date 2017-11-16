@@ -9,6 +9,7 @@ public class MoveSystem : IExecuteSystem {
 	public MoveSystem(Contexts contexts) {
 		_contexts = contexts;
 		_group = contexts.game.GetGroup(Matcher<GameEntity>.AllOf(GameMatcher.Move, GameMatcher.Position));
+        
 	}
 
 	public void Execute() {

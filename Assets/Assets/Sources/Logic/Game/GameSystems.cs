@@ -5,5 +5,6 @@ public class GameSystems : Feature {
 		Add(new MoveSystem(contexts));
 		Add(new FireProjectileSystem(contexts));
 		Add(new ProcessProjectileHitSystem(contexts));
+		Add(new EnemySpawnSystem(contexts));
 	}
 }
