@@ -12,9 +12,6 @@ public class ProjectileView : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D coll) {
 		EntityLink collidedWith = coll.collider.gameObject.GetComponent<EntityLink>();
-
-		if (collidedWith != null && collidedWith.Entity != null) {
-			_entityLink?.Entity?.ReplaceProjectileHit(collidedWith.Entity);
-		}
+		_entityLink?.Entity?.AddProjectileHit(collidedWith?.Entity);
 	}
 }
