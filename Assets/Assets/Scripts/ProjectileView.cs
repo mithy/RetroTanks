@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ProjectileView : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	private EntityLink _entityLink;
+
+	private void Awake() {
+		_entityLink = GetComponent<EntityLink>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	private void OnCollisionEnter2D(Collision2D coll) {
+		if (_entityLink.Entity != null) {
+			_entityLink.Entity.ReplaceProjectileHit(true);
+		}
 	}
 }

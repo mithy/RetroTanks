@@ -18,9 +18,7 @@ public class Globals : ScriptableObject {
 		}
 
 		set {
-			if (_playerUUID == string.Empty) {
-				_playerUUID = value;
-			}
+			_playerUUID = value;
 		}
 	}
 

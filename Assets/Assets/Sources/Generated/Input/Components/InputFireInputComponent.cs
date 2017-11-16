@@ -11,7 +11,7 @@ public partial class InputEntity {
     public FireInputComponent fireInput { get { return (FireInputComponent)GetComponent(InputComponentsLookup.FireInput); } }
     public bool hasFireInput { get { return HasComponent(InputComponentsLookup.FireInput); } }
 
-    public void AddFireInput(UnityEngine.Vector2 newPosition, DirectionsEnum newDirection) {
+    public void AddFireInput(UnityEngine.Vector3 newPosition, DirectionsEnum newDirection) {
         var index = InputComponentsLookup.FireInput;
         var component = CreateComponent<FireInputComponent>(index);
         component.position = newPosition;
@@ -19,7 +19,7 @@ public partial class InputEntity {
         AddComponent(index, component);
     }
 
-    public void ReplaceFireInput(UnityEngine.Vector2 newPosition, DirectionsEnum newDirection) {
+    public void ReplaceFireInput(UnityEngine.Vector3 newPosition, DirectionsEnum newDirection) {
         var index = InputComponentsLookup.FireInput;
         var component = CreateComponent<FireInputComponent>(index);
         component.position = newPosition;

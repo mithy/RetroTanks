@@ -4,10 +4,10 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 
 	[SerializeField]
-	private Globals globals;
+	private Globals _globals;
 
 	[SerializeField]
-	private ProjectilePool projectilePool;
+	private ProjectilePool _projectilePool;
 
     private Systems _systems;
 	private Contexts _contexts;
@@ -16,8 +16,10 @@ public class GameController : MonoBehaviour {
 		Random.InitState(321);
 
 		_contexts = Contexts.sharedInstance;
-		_contexts.game.SetGlobals(globals);
-		_contexts.game.SetProjectilePool(projectilePool);
+		_contexts.game.SetGlobals(_globals);
+		_contexts.game.SetProjectilePool(_projectilePool);
+
+		_projectilePool.Initialize(_globals);
 
 		_systems = CreateSystems(_contexts);
         _systems.Initialize();

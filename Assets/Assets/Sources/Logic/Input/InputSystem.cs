@@ -69,8 +69,8 @@ public class InputSystem : IExecuteSystem, ICleanupSystem {
 				InputEntity entity = _inputContext.CreateEntity();
 
 				entity.AddFireInput(
-					playerEntity.tankView.value.GetTurretPosition(),
-					playerEntity.move.direction);
+					playerEntity.tankView.value.TurretPosition,
+					playerEntity.tankView.value.CurrentFacingDirection);
 			}
 		}
 	}

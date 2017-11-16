@@ -14,11 +14,12 @@ public static class GameComponentsLookup {
     public const int Move = 3;
     public const int PlayerInput = 4;
     public const int Position = 5;
-    public const int ProjectilePool = 6;
-    public const int TankView = 7;
-    public const int View = 8;
+    public const int ProjectileHit = 6;
+    public const int ProjectilePool = 7;
+    public const int TankView = 8;
+    public const int View = 9;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "Asset",
@@ -27,6 +28,7 @@ public static class GameComponentsLookup {
         "Move",
         "PlayerInput",
         "Position",
+        "ProjectileHit",
         "ProjectilePool",
         "TankView",
         "View"
@@ -39,6 +41,7 @@ public static class GameComponentsLookup {
         typeof(MoveComponent),
         typeof(PlayerInputComponent),
         typeof(PositionComponent),
+        typeof(ProjectileHitComponent),
         typeof(ProjectilePoolComponent),
         typeof(TankViewComponent),
         typeof(ViewComponent)

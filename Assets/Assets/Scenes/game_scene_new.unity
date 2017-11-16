@@ -1017,8 +1017,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5214eb979d8f570498d3619d261b1c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globals: {fileID: 11400000, guid: e0d907f8a93d1384b875e29ddbca450b, type: 2}
-  projectilePool: {fileID: 895274566}
+  _globals: {fileID: 11400000, guid: e0d907f8a93d1384b875e29ddbca450b, type: 2}
+  _projectilePool: {fileID: 895274566}
 --- !u!4 &1727435505
 Transform:
   m_ObjectHideFlags: 0

@@ -28,6 +28,6 @@ public sealed class FireProjectileSystem : ReactiveSystem<InputEntity> {
 
 		entity.AddAsset(AssetsEnum.Projectile);
 		entity.AddPosition(position.x, position.y);
-//		entity.AddMove(0.5f, direction);
+		entity.AddMove(1.5f, direction, Vector2.zero);
 	}
 }

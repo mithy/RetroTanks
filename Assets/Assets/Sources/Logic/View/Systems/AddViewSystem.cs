@@ -14,11 +14,11 @@ public sealed class AddViewSystem : ReactiveSystem<GameEntity> {
 	}
 
 	protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) {
-		return context.CreateCollector(GameMatcher.Asset);
+		return context.CreateCollector(GameMatcher.AllOf(GameMatcher.Asset, GameMatcher.Position));
 	}
 
 	protected override bool Filter(GameEntity entity) {
-		return entity.hasAsset;
+		return entity.hasAsset && entity.hasPosition;
 	}
 
 	protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
@@ -27,14 +27,8 @@ public sealed class AddViewSystem : ReactiveSystem<GameEntity> {
 			GameObject gameObject = GetGameObject(selectedAsset);
 
 			if (gameObject != null) {
-				gameObject.transform.parent = _viewContainer;
-				entity.AddView(gameObject);
-
-				switch (selectedAsset) {
-					case AssetsEnum.Tank:
-						entity.AddTankView(gameObject.GetComponent<TankView>());
-						break;
-				}
+				AttachGameObjectToEntity(gameObject, entity);
+				AddAditionalEntityComponents(selectedAsset, gameObject, entity);
 			}
 		}
 	}
@@ -51,4 +45,23 @@ public sealed class AddViewSystem : ReactiveSystem<GameEntity> {
 		return null;
 	}
 
+	private void AttachGameObjectToEntity(GameObject gameObject, GameEntity entity) {
+		gameObject.transform.parent = _viewContainer;
+		gameObject.transform.position = new Vector3(entity.position.x, entity.position.y, 0);
+		entity.AddView(gameObject);
+
+		EntityLink entityLink = gameObject.GetComponent<EntityLink>();
+
+		if (entityLink != null) {
+			entityLink.Link(entity);
+		}
+	}
+
+	private void AddAditionalEntityComponents(AssetsEnum selectedAsset, GameObject gameObject, GameEntity entity) {
+		switch (selectedAsset) {
+			case AssetsEnum.Tank:
+				entity.AddTankView(gameObject.GetComponent<TankView>());
+				break;
+		}
+	}
 }
